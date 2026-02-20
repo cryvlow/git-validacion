@@ -1,9 +1,14 @@
-group "default" {
-  targets = ["app"]
+variable "IMAGE_NAME" {
+  default = "mi-app"
 }
 
-target "app" {
-  context = "."
+target "build" {
   dockerfile = "Dockerfile"
-  tags = ["mi-app:latest"]
+  context = "."
+  tags = ["${IMAGE_NAME}:latest"]
+}
+
+target "validate-build" {
+  inherits = ["build"]
+  call = "check"
 }
