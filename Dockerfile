@@ -4,4 +4,4 @@ WORKDIR /app
 
 COPY . .
 
-CMD ["node", "-e", "console.log('Validación correcta')"]
+CMD ["node", "-e", "console.log('Validacion prueba 2')"]
